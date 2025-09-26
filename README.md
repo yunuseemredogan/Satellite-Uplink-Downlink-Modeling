@@ -1,160 +1,82 @@
-# Uydu Uplink ve Downlink Simülasyonu 🚀
+# Satellite Uplink and Downlink Simulation
 
 ![Project Banner](https://github.com/yunuseemredogan/screenshots-.gitkeep/blob/main/uplink-downlink.png)
 
 ## 📖 Overview
-Uydu Uplink ve Downlink Simülasyonu, MATLAB Simulink kullanılarak geliştirilmiş bir iletişim sistemi modelidir. Bu proje, uydu tabanlı uplink (yerden uyduya) ve downlink (uydu'dan yere) süreçlerini simüle eder. Model, QPSK modülasyonu/demodülasyonu, frekans dönüşümleri, güç amplifikatörleri, kanal etkileri (AWGN ve FSPL) ve hata oranı hesaplamalarını kapsar. Özellikle Düşük Dünya Yörüngesi (LEO) uydu sistemleri için tasarlanmıştır.
+Satellite Uplink and Downlink Simulation is a MATLAB Simulink-based model designed to simulate the uplink (ground to satellite) and downlink (satellite to ground) processes for Low Earth Orbit (LEO) satellite communication systems. The model includes QPSK modulation/demodulation, frequency conversion, power amplification, channel effects (AWGN and FSPL), and error rate calculations, offering a comprehensive view of satellite link performance.
 
-Bu proje, şu amaçlar için idealdir:
-- Uydu iletişim protokollerini test etmek, örneğin IoT tabanlı uzay tabanlı ağlar veya uzaktan algılama sistemleri.
-- Gerçek dünya senaryolarını simüle etmek; SNR, RSSI ve BER metriklerini analiz ederek kanal performansı değerlendirmesi.
-- Eğitimsel kullanım; modülasyon, kanal kodlama ve RF bileşenlerini öğretmek için pratik bir araç.
+This project is perfect for:
+- Testing satellite communication protocols, such as IoT-based space networks or remote sensing.
+- Simulating real-world scenarios with metrics like BER (0.0015), RSSI (-77.4418 dBm), and SNR (23.5355 dB).
+- Educational use to demonstrate modulation, channel coding, and RF concepts.
 
-Temel fikir, karmaşık uydu iletişim zincirini görselleştirerek ve parametrik olarak analiz etmektir. Model, Bernoulli binary kaynakla başlar, QPSK ile modüle edilir, uplink/downlink zincirleri üzerinden geçer ve demodülasyonla sonuçlanır. Performans metrikleri (örneğin, BER: 0.0015) gerçek zamanlı olarak hesaplanır. Not: Bu bir simülasyon modeli; fiziksel donanım gerektirmez, sadece MATLAB/Simulink lisansı yeterlidir.
+The simulation starts with a Bernoulli binary source, processes it through the uplink and downlink chains, and calculates performance metrics in real-time. Created on September 26, 2025, at 04:42 PM +03, this is a simulation-only model requiring a MATLAB/Simulink license.
 
 ## ✨ Key Features
-- **Tam Uplink/Downlink Zinciri**: Veri kaynağı'ndan demodülasyona kadar tam simülasyon, frekans dönüşümleri ve amplifikasyon dahil. 🛰️
-- **QPSK Modülasyon/Demodülasyon**: Standart QPSK ile 4-bit/s/Hz spektral verimlilik. 🔄
-- **Kanal Modelleri**: AWGN gürültüsü ve FSPL (LEO için) ile gerçekçi kanal bozulmaları. 🌌
-- **Güç ve Gürültü Bileşenleri**: Yüksek güç amplifikatörü (uplink), düşük gürültü amplifikatörü (downlink) ve bellek polinomu distorsiyonu. 📡
-- **Performans Metrikleri**: Gerçek zamanlı BER hesaplama (örneğin, 163/105691 = 0.0015), RSSI (-77.4418 dBm) ve SNR (23.5355 dB) izleme. 📊
-- **Parametrik Analiz**: Kolayca SNR, modülasyon veya kanal parametrelerini değiştirerek simülasyonu uyarlama. ⚙️
-- **Görsel Tablolar**: Simulink scopes ile sinyal, hata oranı ve metrik görselleştirmeleri. 📈
-- **Hata Oranı Hesaplaması**: Tx/Rx karşılaştırması ile bit hata oranı (BER) ve sembol hata oranı (SER) analizi. ❌
-- **Modüler Yapı**: Bileşenler (modülatör, kanal, demodülatör) ayrı bloklar halinde, kolay genişletilebilir.
+- **End-to-End Simulation**: Covers data source to demodulation with frequency conversions and amplification. 🛰️
+- **QPSK Processing**: Utilizes QPSK for efficient modulation/demodulation. 🔄
+- **Channel Effects**: Incorporates AWGN noise and FSPL for LEO realism. 🌌
+- **Amplification**: Features high power (uplink) and low noise (downlink) amplifiers with memory polynomial distortion. 📡
+- **Performance Metrics**: Real-time BER (163/105691 = 0.0015), RSSI, and SNR monitoring. 📊
+- **Customizable**: Adjust SNR, modulation, or channel parameters easily. ⚙️
+- **Visual Scopes**: Displays signals, error rates, and metrics. 📈
+- **Error Analysis**: Computes BER and SER by comparing transmitted and received data. ❌
+- **Modular Design**: Extensible blocks for modulators, channels, and demodulators.
 
 ## 📋 Requirements
-Bu modeli çalıştırmak için sisteminizin aşağıdaki gereksinimleri karşılaması gerekmektedir. Model, Windows/Linux/macOS'ta çalışır, ancak Simulink lisansı gereklidir.
+Requires MATLAB R2018b+ with Simulink and relevant toolboxes, compatible with Windows, Linux, and macOS.
 
 ### Software Dependencies:
-- **MATLAB R2018b+**: Simulink toolbox'u ile birlikte. [mathworks.com](https://www.mathworks.com/products/matlab.html) adresinden indirin. 🧮
-- **Communications Toolbox**: QPSK mod/demod ve hata oranı blokları için zorunlu. Varsayılan olarak MATLAB ile gelir, yoksa lisanslayın.
-- **DSP System Toolbox**: Filtreler ve sinyal işleme için (isteğe bağlı, temel model için yeterli).
-- **Diğer**: Standart Simulink blokları (Scope, Bernoulli Generator, AWGN vb.) – ekstra kurulum yok.
+- **MATLAB R2018b+**: With Simulink ([mathworks.com](https://www.mathworks.com/products/matlab.html)). 🧮
+- **Communications Toolbox**: For QPSK and error rate blocks.
+- **DSP System Toolbox**: Optional for signal processing.
 
 ### Hardware Requirements:
-- **Standart PC**: En az 8 GB RAM ve i5 işlemci önerilir; simülasyon süresi parametrelere göre değişir.
-- **Lisans**: Geçerli MATLAB/Simulink lisansı (akademik veya ticari).
-
-**Platform Notes**: Model platform bağımsızdır, ancak Simulink'in yüklü olması şarttır. Linux'ta Wine ile çalıştırılabilir, ancak yerel kurulum önerilir.
+- **Standard PC**: 8 GB RAM, i5 processor minimum.
+- **License**: Valid MATLAB/Simulink license.
 
 ## 🛠️ Installation
-Projeyi yerel makinenizde çalıştırmak için şu adımları izleyin.
-
-1. **Repository'yi Klonlayın**:
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/yunuseemredogan/Satellite-Uplink-Downlink-Modeling.git
    cd Satellite-Uplink-Downlink-Modeling
    ```
-   Bu, Simulink model dosyasını (.slx) ve README'yi indirir.
-
-2. **MATLAB'ı Hazırlayın**:
-   MATLAB'i açın ve toolbox'ları doğrulayın:
-   ```matlab
-   ver('Communications Toolbox')
-   ```
-   Hata verirse, lisansınızı kontrol edin.
-
-3. **Modeli Açın**:
-   Klasörde MATLAB terminalinde:
+2. **Open in MATLAB**:
    ```matlab
    open('satellite-uplink-downlink.slx')
    ```
-   Model açılacak ve scopes hazır olacak.
-
-4. **İsteğe Bağlı: Ekran Görüntüleri Klasörü Oluşturun**:
-   README'ye görseller eklemek için `screenshots` klasörü oluşturun ve model diyagramı gibi yakalamalar yükleyin.
+3. **Verify Toolboxes**: Run `ver('Communications Toolbox')`.
 
 ## ▶️ Usage
-Modeli çalıştırmak basittir.
+1. **Run the Model**: Click "Run" in Simulink.
+2. **Adjust Parameters**: Modify SNR, data length, or frequencies in blocks.
+3. **Monitor**: Check scopes for BER, RSSI, and SNR.
+4. **Stop**: Use the "Stop" button.
 
-1. **Modeli Başlatın**:
-   Simulink'te modeli açtıktan sonra "Run" butonuna tıklayın veya Ctrl+R basın.
+**Pro Tip**: Start with defaults for a quick test.
 
-2. **Parametreleri Yapılandırın**:
-   - **SNR Ayarı**: AWGN bloğunda SNR değerini değiştirin (örneğin, 23 dB için).
-   - **Veri Uzunluğu**: Bernoulli bloğunda örnek sayısını ayarlayın (örneğin, 105691 bit).
-   - **Frekanslar**: Up/Down-converter'larda fc değerlerini güncelleyin.
-   - "Run" ile simüle edin.
+## 🔍 How It Works
+- **Uplink**: Bernoulli binary → QPSK modulation → Up-conversion → HPA → FSPL.
+- **Downlink**: LNA → Down-conversion → AWGN → QPSK demodulation → BER calc.
+- Metrics: BER (0.0015), RSSI (-77.4418 dBm), SNR (23.5355 dB).
 
-3. **Sonuçları İzleyin ve Durdurun**:
-   - Scopes'ta sinyalleri, RSSI/SNR değerlerini ve BER'i izleyin.
-   - Simülasyon bitince "Stop" ile durun; verileri workspace'e kaydedin.
-
-4. **Analiz (Repo'da Dahil Değil)**:
-   - MATLAB script'i ile BER vs SNR grafiği çizin: `semilogy(EbNo, ber);`
-   - Veya dış araçlar (örneğin, Python ile veri dışa aktarma) kullanın.
-
-**Pro Tip**: İlk test için varsayılan parametreleri kullanın; BER 0.0015 civarında olmalı.
-
-## 🔍 How It Works: The Inner Mechanics
-Model, uplink ve downlink zincirlerini paralel olarak simüle eder. İşte detaylı breakdown.
-
-### High-Level Workflow (ASCII Diagram):
-```
-+-------------------+   Mod   +-------------------+   Channel   +-------------------+
-| Bernoulli Binary  | ------> | QPSK Modulator    | ----------> | Up-Converter      |
-| (Data Source)     |        | + HPA + Mem Poly  |             | + FSPL(LEO)        |
-+-------------------+        +-------------------+             +-------------------+
-  |                                         |                          |
-  v                                         v                          v
-Downlink: LNA + Mem Poly + Down-Conv + AWGN  |  Demod: QPSK + BER Calc (0.0015)
-                                             |  
-                                     Scopes: RSSI (-77.44), SNR (23.54)
-```
-
-1. **Uplink Zinciri**:
-   - Veri: Bernoulli binary generator ile rastgele bitler üret (örneğin, 105691 bit).
-   - Modülasyon: QPSK ile sembollere dönüştür.
-   - RF İşleme: Up-converter (fc), yüksek güç amplifikatörü ve bellek polinomu (distorsiyon).
-   - Kanal: FSPL (LEO yol kaybı) uygula.
-
-2. **Downlink Zinciri**:
-   - Alım: Düşük gürültü amplifikatörü (LNA) ve bellek polinomu.
-   - Frekans Dönüşümü: Down-converter (fc).
-   - Gürültü: AWGN kanalı ekle (SNR bazlı).
-   - Demodülasyon: QPSK demodülatörü ile bitlere dönüştür.
-
-3. **Metrik Hesaplaması**:
-   - BER: Tx/Rx karşılaştırması (163 hata / 105691 bit = 0.0015).
-   - RSSI: Alınan sinyal gücü (-77.4418 dBm).
-   - SNR: Hesaplanan sinyal-gürültü oranı (23.5355 dB).
-   - Scopes: Sinyal in/out, ERC (hata oranı) görselleştirmesi.
-
-Model, sabit parametrelerle çalışır (örneğin, QPSK, 30 dB SNR), ancak blok parametrelerini değiştirerek uyarlanabilir. Simülasyon süresi ~10-30 sn'dir.
-
-## 🧱 Code Structure
-Model, tek bir .slx dosyasında modüler bloklarla yapılandırılmıştır.
-
-- **Giriş Bloğu**: Bernoulli Binary Generator (veri kaynağı).
-- **Modülasyon Alt Sistemi**: QPSK Modulator ve scopes.
-- **Uplink Alt Sistemi**: Up-Conv, HPA, Mem Poly, FSPL.
-- **Downlink Alt Sistemi**: LNA, Mem Poly, Down-Conv, AWGN.
-- **Demodülasyon Alt Sistemi**: QPSK Demod, BER Calculation.
-- **Çıkış Bloğu**: Scopes (Signal, RSSI, SNR, ERC).
-- **Konfigürasyon**: Model Properties'te solver ayarları (ode45, fixed-step).
-
-Toplam blok sayısı: ~25, netlik için etiketli (daha fazla ekleyin eğer 필요).
+## 🧱 Structure
+Single .slx file with ~25 blocks, including input (Bernoulli), modulation, uplink/downlink subsystems, and scopes.
 
 ## ⚠️ Troubleshooting
-- **Simulink Açılmıyor**: Lisansı kontrol edin; `license checkout Simulink` çalıştırın.
-- **Blok Hataları**: Toolbox'ları doğrulayın; eksikse yükleyin.
-- **Yavaş Simülasyon**: Örnek sayısını azaltın veya solver'ı değiştirin.
-- **BER Yüksek**: SNR'yi artırın veya kanal parametrelerini ayarlayın.
-- **Scopes Boş**: Run süresini uzatın (Configuration Parameters > Stop Time).
-- **Çökmeler**: MATLAB'i güncelleyin veya debugger kullanın.
+- **License Issues**: Run `license checkout Simulink`.
+- **Slow Performance**: Reduce sample count.
+- **Empty Scopes**: Extend run time.
 
 ## 📉 Limitations
-- Simülasyon tabanlı; gerçek RF donanımı yok.
-- Sabit modülasyon (sadece QPSK); genişletmek için ekleyin.
-- LEO'ya odaklanmış; GEO için FSPL uyarlayın.
-- Kodlama yok (ERC bloğu temel); ileri hata düzeltme ekleyin.
-- Platform bağımlı (MATLAB lisansı).
+- Simulation-only; no hardware support.
+- LEO-focused; adapt for GEO.
+- Basic BER calc; no advanced coding.
 
 ## 🤝 Contributing
-Repo'yu fork'layın, değişiklik yapın ve PR gönderin! Öneriler: Diğer modülasyonlar (16QAM), Doppler etkisi, veya Python entegrasyonu.
+Fork, modify, and submit PRs. Suggest 16QAM or Doppler effects.
 
 ## 📜 License
-MIT License - Kullanın, değiştirin ve paylaşın. [LICENSE](LICENSE) dosyasını görün.
+MIT License - See [LICENSE](LICENSE) file.
 
-*2025'te ❤️ ile yapılmış. Sorular için issue açın!*
+*Built with ❤️ on September 26, 2025, 04:42 PM +03. Open an issue for feedback!*
