@@ -1,6 +1,6 @@
 # Uydu Uplink ve Downlink Simülasyonu 🚀
 
-![Project Banner](https://github.com/yunuseemredogan/satellite-simulink/blob/main/screenshots/model_diagram.png)
+![Project Banner](https://github.com/yunuseemredogan/screenshots-.gitkeep/blob/main/uplink-downlink.png)
 
 ## 📖 Overview
 Uydu Uplink ve Downlink Simülasyonu, MATLAB Simulink kullanılarak geliştirilmiş bir iletişim sistemi modelidir. Bu proje, uydu tabanlı uplink (yerden uyduya) ve downlink (uydu'dan yere) süreçlerini simüle eder. Model, QPSK modülasyonu/demodülasyonu, frekans dönüşümleri, güç amplifikatörleri, kanal etkileri (AWGN ve FSPL) ve hata oranı hesaplamalarını kapsar. Özellikle Düşük Dünya Yörüngesi (LEO) uydu sistemleri için tasarlanmıştır.
@@ -43,8 +43,8 @@ Projeyi yerel makinenizde çalıştırmak için şu adımları izleyin.
 
 1. **Repository'yi Klonlayın**:
    ```bash
-   git clone https://github.com/yunuseemredogan/Uydu-Uplink-Downlink-Simulink.git
-   cd Uydu-Uplink-Downlink-Simulink
+   git clone https://github.com/yunuseemredogan/Satellite-Uplink-Downlink-Modeling.git
+   cd Satellite-Uplink-Downlink-Modeling
    ```
    Bu, Simulink model dosyasını (.slx) ve README'yi indirir.
 
@@ -58,7 +58,7 @@ Projeyi yerel makinenizde çalıştırmak için şu adımları izleyin.
 3. **Modeli Açın**:
    Klasörde MATLAB terminalinde:
    ```matlab
-   open('satellite_communication_model.slx')
+   open('satellite-uplink-downlink.slx')
    ```
    Model açılacak ve scopes hazır olacak.
 
