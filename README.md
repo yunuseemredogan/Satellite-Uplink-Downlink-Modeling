@@ -1,6 +1,6 @@
 # Satellite Uplink and Downlink Simulation 🚀
 
-![Project Banner](https://github.com/yunuseemredogan/screenshots-.gitkeep/blob/main/uplink-downlink.png)
+<img width="1059" height="627" alt="uplink-downlink" src="https://github.com/user-attachments/assets/48f59653-ec67-4161-94e7-3cdd955d9dd1" />
 
 ## 📖 Overview
 Satellite Uplink and Downlink Simulation is a communication system model developed using MATLAB Simulink. This project simulates the uplink (ground to satellite) and downlink (satellite to ground) processes in satellite-based systems. The model includes QPSK modulation/demodulation, frequency conversions, power amplifiers, channel effects (AWGN and FSPL), and error rate calculations. It is specifically designed for Low Earth Orbit (LEO) satellite systems.
